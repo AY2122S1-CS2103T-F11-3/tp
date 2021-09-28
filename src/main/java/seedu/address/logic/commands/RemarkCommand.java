@@ -8,7 +8,6 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
