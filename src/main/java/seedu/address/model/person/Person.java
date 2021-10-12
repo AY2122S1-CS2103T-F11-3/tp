@@ -31,6 +31,7 @@ public class Person {
     private final HoursWorked hoursWorked;
     private final Overtime overtime;
 
+
     /**
      * Constructs a {@code Person} object.
      * All fields except for overtime must be present and not null.
@@ -95,6 +96,14 @@ public class Person {
 
     public Salary getSalary() {
         return salary;
+    }
+
+    public int getCalculatedPay() {
+        return salary.getCalculatedPay();
+    }
+
+    public boolean isPaid() {
+        return salary.getCalculatedPay() > 0;
     }
 
     public HoursWorked getHoursWorked() {

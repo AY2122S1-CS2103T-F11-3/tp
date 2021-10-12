@@ -38,6 +38,7 @@ class JsonAdaptedPerson {
     private final String salary;
     private final String hoursWorked;
     private final String overtime;
+    private final String calculatedPay;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -48,7 +49,8 @@ class JsonAdaptedPerson {
             @JsonProperty("email") String email, @JsonProperty("address") String address,
             @JsonProperty("role") String role, @JsonProperty("leaves") String leaves,
             @JsonProperty("salary") String salary, @JsonProperty("hoursWorked") String hoursWorked,
-            @JsonProperty("overtime") String overtime, @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+            @JsonProperty("overtime") String overtime, @JsonProperty("calculatedPay") String calculatedPay,
+            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -58,6 +60,7 @@ class JsonAdaptedPerson {
         this.salary = salary;
         this.hoursWorked = hoursWorked;
         this.overtime = overtime;
+        this.calculatedPay = calculatedPay;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -76,6 +79,7 @@ class JsonAdaptedPerson {
         salary = source.getSalary().toString();
         hoursWorked = source.getHoursWorked().toString();
         overtime = source.getOvertime().toString();
+        calculatedPay = Integer.toString(source.getSalary().getCalculatedPay());
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -146,7 +150,8 @@ class JsonAdaptedPerson {
         if (!Salary.isValidSalary(salary)) {
             throw new IllegalValueException(Salary.MESSAGE_CONSTRAINTS);
         }
-        final Salary modelSalary = new Salary(salary);
+        // Also takes into account the calculatedPay
+        final Salary modelSalary = new Salary(salary, Integer.parseInt(calculatedPay));
 
         if (hoursWorked == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
@@ -165,6 +170,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Overtime.MESSAGE_CONSTRAINTS);
         }
         final Overtime modelOvertime = new Overtime(overtime);
+
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelRole, modelLeaves,
