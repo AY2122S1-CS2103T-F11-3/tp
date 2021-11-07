@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
 public class LeavesTaken {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Leaves should only contain non-negative integers, and it should not be blank";
+            "Leaves should only contain non-negative integers, and it should not be blank.";
 
     // Dates are sorted in ascending order
     public final PriorityQueue<LocalDate> value;

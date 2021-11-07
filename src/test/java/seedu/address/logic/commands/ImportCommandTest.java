@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.ImportCommand.MESSAGE_FIELD_INVALID_ERROR;
+import static seedu.address.logic.commands.ImportCommand.MESSAGE_FIELD_MISSING_ERROR;
 import static seedu.address.logic.commands.ImportCommand.MESSAGE_IMPORT_FAILURE;
 import static seedu.address.logic.commands.ImportCommand.MESSAGE_IMPORT_FORMAT_ERROR;
 import static seedu.address.logic.commands.ImportCommand.MESSAGE_IMPORT_MISSING_FILE;
@@ -23,6 +25,7 @@ import seedu.address.model.Model;
 import seedu.address.model.OvertimePayRate;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.ObservablePerson;
 import seedu.address.model.person.Person;
 
@@ -34,6 +37,10 @@ public class ImportCommandTest {
     private static final Path DUPLICATE_PERSONS_FILE = TEST_DATA_FOLDER.resolve("DuplicatePersons.csv");
     private static final Path DUPLICATE_EMAILS_FILE = TEST_DATA_FOLDER.resolve("DuplicateEmails.csv");
     private static final Path DUPLICATE_PHONE_NUMBERS_FILE = TEST_DATA_FOLDER.resolve("DuplicatePhoneNumbers.csv");
+    private static final Path MISSING_NAME_COLUMN_FILE = TEST_DATA_FOLDER.resolve("MissingNameColumn.csv");
+    private static final Path EMPTY_ENTRY_FILE = TEST_DATA_FOLDER.resolve("EmptyColumn.csv");
+    private static final Path ENTRY_WITH_MISSING_NAME_FILE = TEST_DATA_FOLDER.resolve("EntryWithMissingName.csv");
+    private static final Path INVALID_FIELD_PRESENT_FILE = TEST_DATA_FOLDER.resolve("InvalidDataPresent.csv");
     private static final Path MISSING_LEAVES_SALARY_HOURSWORKED_TAGS_FILE =
             TEST_DATA_FOLDER.resolve("MissingLeavesSalaryHoursWorkedTags.csv");
     private Model modelWithDefaultAddressBook;
@@ -143,6 +150,42 @@ public class ImportCommandTest {
     public void import_csvWithDuplicatePhoneNumbers_failure() throws Exception {
         String filePathString = DUPLICATE_PHONE_NUMBERS_FILE.toString();
         String expectedMessage = MESSAGE_IMPORT_FAILURE + "Duplicate phone numbers detected in Rows 1 and 8.";
+        Command command = new ImportCommand(filePathString);
+        assertThrows(CommandException.class, expectedMessage, () -> command.execute(model));
+    }
+
+    // File with missing name column.
+    @Test
+    public void import_csvWithMissingNameColumn_failure() throws Exception {
+        String filePathString = MISSING_NAME_COLUMN_FILE.toString();
+        String expectedMessage = MESSAGE_IMPORT_FORMAT_ERROR;
+        Command command = new ImportCommand(filePathString);
+        assertThrows(CommandException.class, expectedMessage, () -> command.execute(model));
+    }
+
+    // File with an empty entry
+    @Test
+    public void import_csvWithEmptyEntry_failure() throws Exception {
+        String filePathString = EMPTY_ENTRY_FILE.toString();
+        String expectedMessage = MESSAGE_IMPORT_FORMAT_ERROR;
+        Command command = new ImportCommand(filePathString);
+        assertThrows(CommandException.class, expectedMessage, () -> command.execute(model));
+    }
+
+    // File with an invalid entry
+    @Test
+    public void import_csvWithInvalidData_failure() throws Exception {
+        String filePathString = INVALID_FIELD_PRESENT_FILE.toString();
+        String expectedMessage = String.format(MESSAGE_FIELD_INVALID_ERROR, 1, Name.MESSAGE_CONSTRAINTS);
+        Command command = new ImportCommand(filePathString);
+        assertThrows(CommandException.class, expectedMessage, () -> command.execute(model));
+    }
+
+    // File with an entry missing name input.
+    @Test
+    public void import_csvWithEntryMissingName_failure() throws Exception {
+        String filePathString = ENTRY_WITH_MISSING_NAME_FILE.toString();
+        String expectedMessage = String.format(MESSAGE_FIELD_MISSING_ERROR, 1, "Name");
         Command command = new ImportCommand(filePathString);
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(model));
     }

@@ -5,15 +5,21 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.io.Serializable;
 
+import seedu.address.commons.util.StringUtil;
+
 /**
  * Represents a pay rate for overtime used in the employee payroll calculations.
  * Guarantees: immutable; is valid as declared in {@link #isValidOvertimePayRate(String)}
  */
 public class OvertimePayRate implements Serializable {
 
+    public static final double MIN_OVERTIME_PAY_RATE = 1;
+    public static final double MAX_OVERTIME_PAY_RATE = 10;
+    public static final double DEFAULT_OVERTIME_PAY_RATE = 1.5;
+    public static final int MAX_DECIMAL_PLACES = 5;
     public static final String MESSAGE_CONSTRAINTS =
-            "Overtime pay rate should only be a number greater than or equals to 1,"
-                    + " and it should not be blank.";
+            "Overtime pay rate should only be a number between 1 to 10, "
+                    + "with 5 or less decimal places and it should not be blank.";
 
     public final double value;
 
@@ -21,7 +27,7 @@ public class OvertimePayRate implements Serializable {
      * Constructs a {@code OvertimePayRate} with a default overtime pay rate of 1.5.
      */
     public OvertimePayRate() {
-        this.value = 1.5;
+        this.value = DEFAULT_OVERTIME_PAY_RATE;
     }
 
     /**
@@ -36,28 +42,37 @@ public class OvertimePayRate implements Serializable {
     }
 
     /**
-     * Returns true if a given string is a valid numerical string and
-     * is greater than or equals to 1.
+     * Returns true if a given string is a valid numerical string with
+     * less than 5 decimal places and is within the bounds of overtime pay rate values.
      */
     public static boolean isValidOvertimePayRate(String test) {
         requireNonNull(test);
-        boolean isValidRate = true;
+        boolean isValidUnsignedDouble = StringUtil.isNonNegativeUnsignedDouble(test);
+        boolean hasFiveOrLessDecimalPlaces = false;
+        boolean isWithinBounds = false;
 
-        try {
-            double value = Double.parseDouble(test);
-            if (value < 1 || test.startsWith("+")) {
-                isValidRate = false;
-            }
-        } catch (NumberFormatException nfe) {
-            isValidRate = false;
+        if (isValidUnsignedDouble) {
+            hasFiveOrLessDecimalPlaces =
+                    StringUtil.isDoubleWithDpWithinLimit(test, MAX_DECIMAL_PLACES);
+
+            double testValue = Double.parseDouble(test);
+            isWithinBounds = isOvertimePayRateWithinBounds(testValue);
         }
 
-        return isValidRate;
+        return isValidUnsignedDouble && hasFiveOrLessDecimalPlaces && isWithinBounds;
+    }
+
+    /**
+     * Returns true if a given double is within the bounds of
+     * MIN_OVERTIME_PAY_RATE and MAX_OVERTIME_PAY_RATE.
+     */
+    private static boolean isOvertimePayRateWithinBounds(double testValue) {
+        return (testValue >= MIN_OVERTIME_PAY_RATE) && (testValue <= MAX_OVERTIME_PAY_RATE);
     }
 
     @Override
     public String toString() {
-        return String.format("%f", value);
+        return String.format("%.5f", value);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class LeaveBalance {
     public static final String MESSAGE_CONSTRAINTS =
             "Leave Balance should only contain an integer value between "
                     + MIN_LEAVES + " and " + MAX_LEAVES
-                    + " (both inclusive), and it should not be blank";
+                    + " (both inclusive), and it should not be blank.";
 
     public final int value;
 

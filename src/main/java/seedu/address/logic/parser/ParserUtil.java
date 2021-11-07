@@ -141,7 +141,7 @@ public class ParserUtil {
     public static HourlySalary parseSalary(String amount) throws ParseException {
         requireNonNull(amount);
         String trimmedAmount = amount.trim();
-        if (!HourlySalary.isValidSalary(trimmedAmount)) {
+        if (!HourlySalary.isValidHourlySalary(trimmedAmount)) {
             throw new ParseException(HourlySalary.MESSAGE_CONSTRAINTS);
         }
         return new HourlySalary(trimmedAmount);

@@ -17,7 +17,7 @@ public class HoursWorked {
     public static final String MESSAGE_CONSTRAINTS =
             "Hours Worked should only contain an integer value between "
                     + MIN_HOURS_WORKED + " and " + MAX_HOURS_WORKED
-                    + " (both inclusive), and it should not be blank";
+                    + " (both inclusive), and it should not be blank.";
 
     public final int value;
 

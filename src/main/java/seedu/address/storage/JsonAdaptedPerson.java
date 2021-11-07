@@ -162,7 +162,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     HourlySalary.class.getSimpleName()));
         }
-        if (!HourlySalary.isValidSalary(salary)) {
+        if (!HourlySalary.isValidHourlySalary(salary)) {
             throw new IllegalValueException(HourlySalary.MESSAGE_CONSTRAINTS);
         }
         final HourlySalary modelHourlySalary = new HourlySalary(salary);

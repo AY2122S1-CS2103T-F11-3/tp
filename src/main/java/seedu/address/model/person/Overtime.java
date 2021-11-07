@@ -16,7 +16,7 @@ public class Overtime {
     public static final String MESSAGE_CONSTRAINTS =
             "Overtime should only contain an integer value between "
                     + MIN_OVERTIME + " and " + MAX_OVERTIME
-                    + " (both inclusive), and it should not be blank";
+                    + " (both inclusive), and it should not be blank.";
 
     public final int value;
 

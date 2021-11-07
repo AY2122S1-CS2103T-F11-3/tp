@@ -15,7 +15,8 @@ public class SetOvertimePayRateCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Sets the pay rate for overtime in future calculations for payroll.\n"
-            + "Parameters: NEW_OVERTIME_PAY_RATE (must be a positive number greater than equals to 1)\n"
+            + "Parameters: NEW_OVERTIME_PAY_RATE (must be a number from 1 to 10,"
+            + " with at most 5 decimal places)\n"
             + "Example: " + COMMAND_WORD + " 1.75";
 
     public static final String MESSAGE_SET_RATE_SUCCESS = "New overtime pay rate: %1$s";

@@ -155,7 +155,7 @@ public class StartPayrollCommandTest {
         model.setPerson(personToCalculatePay, personWithCalculatedPay);
 
         String expectedMessage =
-                String.format(StartPayrollCommand.MESSAGE_NOT_PAID, personToCalculatePay);
+                String.format(StartPayrollCommand.MESSAGE_NOT_PAID, personToCalculatePay.getName());
 
         assertCommandFailure(startPayrollCommand, model, expectedMessage);
     }

@@ -7,8 +7,9 @@ import seedu.address.commons.util.StringUtil;
 
 public class CalculatedPay {
 
+    public static final int MAX_DECIMAL_PLACES = 2;
     public static final String MESSAGE_CONSTRAINTS =
-            "Calculated pay should only contain  non-negative numbers with two or less decimal places.";
+            "Calculated pay should only contain non-negative numbers with two or less decimal places.";
 
     public final double value;
 
@@ -24,13 +25,17 @@ public class CalculatedPay {
     }
 
     /**
-     * Returns true if a given numerical string is non-negative and has
+     * Returns true if a given numerical string is unsigned, non-negative and has
      * two or less decimal places.
      */
     public static boolean isValidCalculatedPay(String test) {
         requireNonNull(test);
 
-        return StringUtil.isNonNegativeDoubleWithTwoOrLessDecimalPlaces(test);
+        boolean isNonNegativeUnsignedDouble = StringUtil.isNonNegativeUnsignedDouble(test);
+        boolean hasTwoOrLessDecimalPlaces =
+                    StringUtil.isDoubleWithDpWithinLimit(test, MAX_DECIMAL_PLACES);
+
+        return isNonNegativeUnsignedDouble && hasTwoOrLessDecimalPlaces;
     }
 
     @Override

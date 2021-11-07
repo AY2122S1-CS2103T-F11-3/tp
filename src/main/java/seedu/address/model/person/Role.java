@@ -11,7 +11,7 @@ public class Role {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Roles must start with an capital/non-capital alphabet, followed by any number of alphanumeric"
-                    + "characters, and it should not be blank. \n"
+                    + " characters, and it should not be blank."
                     + "Special characters such as brackets, hyphens, ampersands and slashes are allowed.";
 
     /*
