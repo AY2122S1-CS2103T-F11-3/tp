@@ -81,7 +81,7 @@ run {
 }
 
 shadowJar {
-    archiveName = 'addressbook.jar'
+    archiveName = 'HeRon.jar'
 }
 
 defaultTasks 'clean', 'test'
