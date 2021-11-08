@@ -1148,7 +1148,7 @@ testers are expected to do more *exploratory* testing.
        Expected: The leave is assigned. Details of the new assigned leave are shown in the status message.
 
     7. Test case: `assignLeave 1 d/2021-08-10`<br>
-       Expected: No leave is assigned. Error details shown in the status message indicate that a leave with date is already assigned.
+       Expected: No leave is assigned. Error details shown in the status message indicate that a leave with the input date is already assigned to the employee.
 
     8. Test case: `assignLeave 1 d/2021-08-11`, followed by `removeLeavesBefore 1 d/2021-08-10`<br>
        Expected: The leave with date 2021-08-11 is assigned, and then the leave on 2021-08-10 is removed.
