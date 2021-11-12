@@ -14,12 +14,16 @@ If you are... | What to do next
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 <h2>Table of Contents</h2>
 
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Quick start
 
@@ -69,10 +73,14 @@ If you are... | What to do next
 - You can enter your commands into the Command Box
 - The Result Display shows the result of the command that has been executed. If the command was unsuccessful, it displays an error instead.
 
+<div style="page-break-after: always;"></div>
+
 ### List Panel <br>
 ![ListPanel](images/user-guide/ListPanel.png) <br>
 - Displays the employee list together with its relevant particulars.
 - Employees are listed as cards that contain the name, role, email and tags of the employee.
+
+<div style="page-break-after: always;"></div>
 
 ### Display Panel <br>
 ![DisplayPanel](images/user-guide/DisplayPanel.png) <br>
@@ -127,14 +135,15 @@ Field | Requirements | Examples
 `NAME` | Contain alphanumeric characters and spaces only. | `Alice Pauline`, `Benson Meier`
 `PHONE_NUMBER` | Contain numbers only, at least 3 digits long. | `98102832`, `123`
 `EMAIL` | Be in the format of *local-part@domain*. *local-part* should contain only alphanumeric characters and/or certain special characters (`+_.-`), and cannot start or end with any special characters. *domain* should start and end with alphanumeric characters, must be at least 2 characters long, and can contain hyphens. | `alice_pauline@example.com`, `benson-miller@gg.com`
-`ADDRESS`| Can take any value.| `123 Alice Street`, `College of Alice & Peter Tan #01-124`
-`ROLE`| Start with alphabet, followed by alphanumeric characters or certain special characters (`-&/()[]`). Only 2 sets of brackets are allowed in total. | `Team Lead (UI/UX Design)`, `R&D Manager`
-`NUMBER_OF_LEAVES`| Non-negative whole numbers less than or equal to 365. |`12`,`0`
-`DATE` | A valid date in the form YYYY-MM-DD. | `2020-03-10`,`2021-11-02`
-`HOURLY_SALARY`| Non-negative numbers with two or less decimal places only.| `12.98`,`0.33`
-`HOURS_WORKED`| Non-negative whole numbers less than or equal to 744.| `12`,`1`
-`OVERTIME`| Non-negative whole numbers less than or equal to 744. | `12`,`0`
+`ADDRESS`| Can take any value.| `123 Alice Street`, `College of Alice Tan #01-124`
+`ROLE`| Start with alphabet, followed by alphanumeric characters or certain special characters (`-&/()[]`). Only 2 sets of brackets are allowed. | `Team Lead (UI/UX Design)`, `R&D Manager`
+`NUMBER_OF_LEAVES`| Whole numbers from 0 to 365. |`12`, `0`
+`DATE` | A valid date in the form YYYY-MM-DD. | `2020-03-10`, `2021-11-02`
+`HOURLY_SALARY`| Numbers from 0 to 1000 with two or less decimal places only.| `12.98`, `0.33`
+`HOURS_WORKED`| Whole numbers from 1 to 744.| `12`, `1`
+`OVERTIME`| Whole numbers from 0 to 744. | `12`, `0`
 `TAG`| Contain alphanumeric characters only. | `friend`, `supervisor`
+`OVERTIME_PAY_RATE`| Numbers from 1 to 10 with five or less decimal places only. | `1.5`, `2.0`, `3.45678`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 An employee can have any number of tags (including 0)
@@ -197,6 +206,8 @@ Field | Rename to ... (Case-Insensitive) | Compulsory for Import? | Default Valu
   ![Picture of CSV file missing compulsory field](images/user-guide/missingFieldCsv.png)
   ![Result for missing field import](images/user-guide/missingFieldImport.png)
 
+<div style="page-break-after: always;"></div>
+
 * Multiple Tags present in entry.
   ![Picture of CSV file with multiple tags](images/user-guide/multipleTagsCsv.png)
   ![Result for multiple tag import](images/user-guide/multipleTagImport.png)
@@ -212,6 +223,8 @@ This command allows you to view the data of the specified employee at the InfoPa
 **Example:**
 * `list` followed by `view 3` displays the information of the 3rd employee in the employee list.
 * `find r/Financial Manager` followed by `view 1` displays the information of the 1st employee in the list of employees that have the Financial Manager role.
+
+<div style="page-break-after: always;"></div>
 
 #### Adding an employee: `add`
 
@@ -230,6 +243,8 @@ This command allows you to add a new employee into HeRon, as long as the all det
 * `add n/Betsy Crowe r/Designer s/25 hw/60  l/21  e/betsycrowe@example.com a/Newgate Prison p/1234567 o/0 t/criminal t/friend`
   ![Result of successful add](images/user-guide/addExample.png)
   _Result of adding a new employee Betsy successfully to HeRon_ <br>
+
+<div style="page-break-after: always;"></div>
 
 #### Editing an employee : `edit`
 
@@ -268,6 +283,8 @@ This command allows you to delete a specific employee from the application.
 **Examples:**
 * `list` followed by `delete 2` deletes the 2nd employee in HeRon.
 * `find n/Betsy` followed by `delete 1` deletes the 1st employee in the results of the `find` command.
+
+<div style="page-break-after: always;"></div>
 
 #### Locating specific employees: `find`
 
@@ -325,8 +342,8 @@ Find employees using specified fields, checking if their information field conta
     * For example, `find d/2021-10-10 2021-11-01:2021-11-05` will find anyone who satisfies **either** of the following 2 criteria:
       1. has taken a leave on October 10th 2021, or
       2. has taken a leave between the dates November 1st 2021 and November 5th 2021, start and end dates inclusive.
-      
-  
+
+<div style="page-break-after: always;"></div>
 
 **Examples:**
 * `find unpaid n/John Mike r/admin l/<=5 o/>3` finds all employees who satisfy all the following criteria:
@@ -337,6 +354,8 @@ Find employees using specified fields, checking if their information field conta
   5. has strictly more than 3 days of overtime
 * `find unpaid n/carl Elle l/<3` returns `Carl Kurz`, `Elle Meyer` as long as they have less than 3 leaves left and are still unpaid.<br>
   ![result for 'find alex david'](images/user-guide/findCarlElleResult.png)
+
+<div style="page-break-after: always;"></div>
 
 #### Listing all employees : `list`
 
@@ -352,6 +371,8 @@ This command clears all employees from the employee list. Upon clearing, it shou
 
 **Format:** `clear`
 
+<div style="page-break-after: always;"></div>
+
 ### Leave-related Commands
 
 The following table describes the input format of each field as well as any requirements
@@ -359,9 +380,9 @@ for all Leave-related commands in HeRon.
 
 Field | Requirements | Examples
       --------------|---------------|---------
-`INDEX` | Refers to the number next to an employee's name in the displayed employee list.| `1`,`3`
-`NUMBER_OF_LEAVES`| Positive whole numbers from 1 to 365. |`12`,`1`,`365`
-`DATE` | A valid date in the form YYYY-MM-DD. | `2020-03-10`,`2021-11-02`
+`INDEX` | Refers to the number next to an employee's name in the displayed employee list.| `1`, `3`
+`NUMBER_OF_LEAVES`| Whole numbers from 1 to 365. |`12`, `1`, `365`
+`DATE` | A valid date in the form YYYY-MM-DD. | `2020-03-10`, `2021-11-02`
 
 #### Add number of leaves for an employee : `addLeaveBalance`
 
@@ -389,6 +410,8 @@ leave balance (number of days of leave the employee has left).
 * The index refers to the number next to an employee's name in the displayed employee list.
 * The number of leaves to be deducted **must be between 1 and 365**: 1, 2, 3, …, 365
 * You **cannot deduct more leaves than what the employee has in their leave balance.**
+
+<div style="page-break-after: always;"></div>
 
 **Examples:**
 * `list` followed by `deductLeaveBalance 2 l/1` removes 1 day of leave from the 2nd employee in HeRon.
@@ -429,6 +452,8 @@ on and before a specified date from all employees in the list.
 * `find n/Anthony` followed by `removeLeavesBefore 1 d/2021-01-08` removes all leaves occurring on and before 2021-01-08
   for all employees that have 'Anthony' in their names.
 
+<div style="page-break-after: always;"></div>
+
 ### Payroll-related Commands
 
 The following table describes the input format of each field as well as any requirements
@@ -436,10 +461,11 @@ for all Payroll-related commands in HeRon.
 
 Field | Requirements | Examples
       --------------|---------------|---------
-`INDEX` | Refers to the number next to an employee's name in the displayed employee list.| `1`,`3`
-`HOURLY_SALARY`| Non-negative numbers with two or less decimal places only.| `12.98`,`0.33`
-`HOURS_WORKED`| Positive whole numbers from 1 to 744.| `52`,`1`,`744`
-`OVERTIME`| Positive whole numbers from 1 to 744. | `11`,`1`,`744`
+`INDEX` | Refers to the number next to an employee's name in the displayed employee list.| `1`, `3`
+`HOURLY_SALARY`| Numbers from 0 to 1000 with two or less decimal places only.| `12.98`, `0.33`
+`HOURS_WORKED`| Whole numbers from 1 to 744.| `12`, `1`
+`OVERTIME`| Whole numbers from 0 to 744. | `12`, `0`
+`OVERTIME_PAY_RATE`| Numbers from 1 to 10 with five or less decimal places only. | `1.5`, `2.0`, `3.45678`
 
 #### Add number of hours worked/overtime to an employee : `addHoursWorked`
 
@@ -464,6 +490,8 @@ work hours or overtime hours.
 * `list` followed by `addHoursWorked 5 hw/5 o/5` adds 5 hours worked and 5 hours of overtime to the 5th employee in HeRon.
 * `find n/Sam` followed by `addHoursWorked 2 o/5` adds 5 hours of overtime to the 2nd employee in the results of the `find` command.
 
+<div style="page-break-after: always;"></div>
+
 #### Deduct number of hours worked/overtime from an employee : `deductHoursWorked`
 
 This command allows you to decrease an employee's
@@ -482,15 +510,13 @@ work hours or overtime hours.
 * `list` followed by `deductHoursWorked 2 hw/5 o/3` removes 5 hours worked and 3 hours of overtime from the 2nd employee in HeRon.
 * `find n/Sam` followed by `deductHoursWorked 1 o/2` removes 2 hours of overtime from the 1st employee in the results of the `find` command.
 
-<div style="page-break-after: always;"></div>
-
 #### View the Overtime Pay Rate : `viewOvertimePayRate`
 
 This command tells you the current overtime pay rate set in the application.
 
 **Format:** `viewOvertimePayRate`
 
-* Displays the current overtime pay rate in the feedback panel.
+* Shows the current overtime pay rate in the Result Display.
 
 #### Set a new Overtime Pay Rate : `setOvertimePayRate`
 
@@ -502,14 +528,16 @@ This command sets a new overtime pay rate to be used in payroll calculations.
 * You can only enter up to 5 decimal places for the overtime pay rate.
 </div>
 
-**Format:** `setOvertimePayRate OVERTIMEPAYRATE`
+**Format:** `setOvertimePayRate OVERTIME_PAY_RATE`
 
-* This command sets the overtime pay rate in HeRon to `OVERTIMEPAYRATE`.
+* This command sets the overtime pay rate in HeRon to `OVERTIME_PAY_RATE`.
 
 **Examples:**
 * `setOvertimePayRate 2.0` sets the new overtime pay rate to be 2.
-* `setOvertimePayRate 0.5` would be invalid as `OVERTIMEPAYRATE` must be at least 1.
+* `setOvertimePayRate 0.5` would be invalid as `OVERTIME_PAY_RATE` must be at least 1.
 * `setOvertimePayRate 1.000000` would also be invalid as there are more than 5 decimal places.
+
+<div style="page-break-after: always;"></div>
 
 #### Start Payroll : `startPayroll`
 
@@ -525,11 +553,11 @@ This command calculates the payroll for all employees and marks them as unpaid.
 The formula for the pay of an employee is: <br>
 <p align="center" markdown="1">
 
-    `(HOURLY_SALARY x HOURS_WORKED) + (HOURLY_SALARY x OVERTIME x OVERTIMEPAYRATE)`,
+    `(HOURLY_SALARY x HOURS_WORKED) + (HOURLY_SALARY x OVERTIME x OVERTIME_PAY_RATE)`,
 
 </p>
 
-where `OVERTIMEPAYRATE` is the added pay rate for overtime worked.<br>
+where `OVERTIME_PAY_RATE` is the added pay rate for overtime worked.<br>
 It can be viewed through the [`viewOvertimePayRate`](#view-the-overtime-pay-rate--viewovertimepayrate) command 
 or changed through the [`setOvertimePayRate`](#set-a-new-overtime-pay-rate--setovertimepayrate) command.
 
@@ -547,14 +575,19 @@ the overtime pay rate is 1.5x, their pay would be:<br>
 * After calculating the payroll, you can use the [`pay`](#paying-employees--pay) command to mark employees as paid,
   after their pay are given in real life.
 
+<div style="page-break-after: always;"></div>
+
 **Example:**
 * Before you use the `startPayroll` command, you might be viewing a filtered list.
   ![before starting payroll](images/user-guide/startPayroll_before.png)
+
+<div style="page-break-after: always;"></div>
   
 * After entering the `startPayroll` command, the payroll will be calculated and you will then be viewing 
   the full list of employees. Each employee will have a red `NOT PAID` label.
   ![after starting payroll](images/user-guide/startPayroll_after.png)
 
+<div style="page-break-after: always;"></div>
 
 #### Paying employee(s) : `pay`
 
@@ -572,7 +605,9 @@ This command has two formats:
 * `pay 1` marks the 1st employee in the list as paid, removing the red `NOT PAID` label.
   ![before paying the employee](images/user-guide/pay_beforePaying.png)
   _Alex is marked as unpaid in HeRon after a `startPayroll` command_ <br>
-  <br>
+
+<div style="page-break-after: always;"></div>
+
   ![after paying the employee](images/user-guide/pay_afterPaying.png)
   _After executing `pay 1`, Alex (being the 1st employee in this list) is marked as paid, 
   and the red `NOT PAID` label is removed_ <br>
@@ -584,7 +619,9 @@ This command has two formats:
   which calculates the payroll and marks all employees as unpaid.
 * If there are employees that are already paid in the list, they will be skipped and will be listed in 
   the feedback panel.
-  
+
+
+<div style="page-break-after: always;"></div>
 
 ### Miscellaneous Commands
 
@@ -649,7 +686,7 @@ Action | Format, Examples
 **Add Hours Worked/Overtime** | `addHoursWorked INDEX [hw/HOURS_WORKED] [o/OVERTIME]` <br> e.g., `addHoursWorked 1 hw/2 o/3`
 **Deduct Hours Worked/Overtime** | `deductHoursWorked INDEX [hw/HOURS_WORKED] [o/OVERTIME]` <br> e.g., `deductHoursWorked 4 hw/1 o/2`
 **View Overtime Pay Rate** | `viewOvertimePayRate`
-**Set a new Overtime Pay Rate** | `setOvertimePayRate OVERTIMEPAYRATE`<br> e.g., `setOvertimePayRate 2.0`
+**Set a new Overtime Pay Rate** | `setOvertimePayRate OVERTIME_PAY_RATE`<br> e.g., `setOvertimePayRate 2.0`
 **Start Payroll** | `startPayroll`
 **Pay Employee(s)** | `pay INDEX` <br> e.g., `pay 3` <br> OR <br>`pay all`
 **Open the help menu** | `help`
