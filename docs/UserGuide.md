@@ -156,7 +156,7 @@ An employee can have any number of tags (including 0)
 
 #### Importing Data from CSV files: `import`
 
-HeRon assists you in starting out by making it easy to migrate from other software, such as Excel. To transfer your existing data, convert it into a Comma Separated Value (.csv) file. If you require help in exporting your spreadsheet in Excel to a .csv file, you can refer to this [guide](https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6_) by Microsoft.
+HeRon assists you in starting out by making it easy to migrate from other software, such as Excel. To transfer your existing data, convert it into a Comma Separated Value (.csv) file. If you require help in exporting your spreadsheet in Excel to a .csv file, you can refer to this [guide](https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6) by Microsoft.
 
 This command then allows you to migrate the data in the csv file that you have, replacing the existing data in HeRon.
 
