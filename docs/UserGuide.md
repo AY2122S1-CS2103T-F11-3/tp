@@ -213,7 +213,7 @@ Field | Rename to ... (Case-Insensitive) | Compulsory for Import? | Default Valu
 
 #### Viewing employee data: `view`
 
-This command allows you to view the data of the specified employee at the InfoPanel.
+This command allows you to view the data of the specified employee on the Display Panel.
 
 **Format:** `view INDEX`
 * Displays the data of the employee at the specified `INDEX`.
@@ -462,7 +462,7 @@ Field | Requirements | Examples
       --------------|---------------|---------
 `INDEX` | Refers to the number next to an employee's name in the displayed employee list.| `1`, `3`
 `HOURLY_SALARY`| Numbers from 0 to 1000 with two or less decimal places only.| `12.98`, `0.33`
-`HOURS_WORKED`, `OVERTIME`| Whole numbers from 1 to 744. (For `add`, `edit` commands,<br> 0 is allowed)| `12`, `1`
+`HOURS_WORKED`, `OVERTIME`| Whole numbers from 1 to 744. (For `add`, `edit` commands, 0 is allowed)| `12`, `1`
 `OVERTIME_PAY_RATE`| Numbers from 1 to 10 with five or less decimal places only. | `1.5`, `2.0`, `3.45678`
 
 #### Add number of hours worked/overtime to an employee : `addHoursWorked`
@@ -591,7 +591,7 @@ the overtime pay rate is 1.5x, their pay would be:<br>
 
 This command has two formats:
 * Format 1: `pay INDEX` - marks the employee at `INDEX` as paid.
-* Format 2: `pay all` - marks all employees in the current list as paid
+* Format 2: `pay all` - marks all employees in the current list as paid.
 
 **Format 1:** `pay INDEX` - for marking a specific employee as paid
 * This command marks the employee at `INDEX` as paid by removing the red `NOT PAID` label under the employee's data.
@@ -615,8 +615,8 @@ This command has two formats:
   the employees' data.
 * You can use this command after the [`startPayroll`](#start-payroll--startpayroll) command,
   which calculates the payroll and marks all employees as unpaid.
-* If there are employees that are already paid in the list, they will be skipped and will be listed in 
-  the feedback panel.
+* If there are employees that are already paid in the list, they will be skipped and listed in 
+  the Result Display.
 
 
 <div style="page-break-after: always;"></div>
