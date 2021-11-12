@@ -140,8 +140,7 @@ Field | Requirements | Examples
 `NUMBER_OF_LEAVES`| Whole numbers from 0 to 365. |`12`, `0`
 `DATE` | A valid date in the form YYYY-MM-DD. | `2020-03-10`, `2021-11-02`
 `HOURLY_SALARY`| Numbers from 0 to 1000 with two or less decimal places only.| `12.98`, `0.33`
-`HOURS_WORKED`| Whole numbers from 1 to 744.| `12`, `1`
-`OVERTIME`| Whole numbers from 0 to 744. | `12`, `0`
+`HOURS_WORKED`, `OVERTIME`| (For `add`, `edit` commands)<br> Whole numbers from 0 to 744.<br> (For `addHoursWorked`, `deductHoursWorked` commands)<br> Whole numbers from 1 to 744.| `12`, `1`
 `TAG`| Contain alphanumeric characters only. | `friend`, `supervisor`
 `OVERTIME_PAY_RATE`| Numbers from 1 to 10 with five or less decimal places only. | `1.5`, `2.0`, `3.45678`
 
@@ -463,8 +462,7 @@ Field | Requirements | Examples
       --------------|---------------|---------
 `INDEX` | Refers to the number next to an employee's name in the displayed employee list.| `1`, `3`
 `HOURLY_SALARY`| Numbers from 0 to 1000 with two or less decimal places only.| `12.98`, `0.33`
-`HOURS_WORKED`| Whole numbers from 1 to 744.| `12`, `1`
-`OVERTIME`| Whole numbers from 0 to 744. | `12`, `0`
+`HOURS_WORKED`, `OVERTIME`| (For `addHoursWorked`, `deductHoursWorked` commands)<br> Whole numbers from 1 to 744.| `12`, `1`
 `OVERTIME_PAY_RATE`| Numbers from 1 to 10 with five or less decimal places only. | `1.5`, `2.0`, `3.45678`
 
 #### Add number of hours worked/overtime to an employee : `addHoursWorked`
