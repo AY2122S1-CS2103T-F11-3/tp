@@ -198,10 +198,10 @@ Field | Rename to ... (Case-Insensitive) | Compulsory for Import? | Default Valu
 `TAGS`|Tags|No| Empty Set of Tags
 
 **Example:** `import ./toBeImported`
-* If all requirements are met and the import is successful, the Result Display Panel will reflect this to you.
+* If all requirements are met and the import is successful, the Result Display will reflect this to you.
   ![Result for successful import](images/user-guide/multipleTagImport.png)
 
-* If there are missing compulsory fields, the Result Display Panel will indicate the first row it detects that has a compulsory value missing.
+* If there are missing compulsory fields, the Result Display will indicate the first row it detects that has a compulsory value missing.
   ![Picture of CSV file missing compulsory field](images/user-guide/missingFieldCsv.png)
   ![Result for missing field import](images/user-guide/missingFieldImport.png)
 
