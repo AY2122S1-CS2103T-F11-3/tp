@@ -155,9 +155,9 @@ An employee can have any number of tags (including 0)
 
 ### General Admin Commands
 
-#### Import Data from CSV files: `import`
+#### Importing Data from CSV files: `import`
 
-HeRon assists you in starting by making it easy to migrate from other software, such as Excel. To transfer your existing data, convert it into a Comma Separated Value (.csv) file. If you require help in exporting your spreadsheet in Excel to a .csv file, you can refer to this [guide](https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6_) by Microsoft.
+HeRon assists you in starting out by making it easy to migrate from other software, such as Excel. To transfer your existing data, convert it into a Comma Separated Value (.csv) file. If you require help in exporting your spreadsheet in Excel to a .csv file, you can refer to this [guide](https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6_) by Microsoft.
 
 This command then allows you to migrate the data in the csv file that you have, replacing the existing data in HeRon.
 
@@ -198,17 +198,17 @@ Field | Rename to ... (Case-Insensitive) | Compulsory for Import? | Default Valu
 `OVERTIME` |Overtime|No | 0
 `TAGS`|Tags|No| Empty Set of Tags
 
-**Example:** You should see the following behaviours for the command, `import ./toBeImported`.
-* Successful Import
+**Example:** `import ./toBeImported`
+* If all requirements are met and the import is successful, the Result Display Panel will reflect this to you.
   ![Result for successful import](images/user-guide/multipleTagImport.png)
 
-* Multiple entries missing compulsory fields.
+* If there are missing compulsory fields, the Result Display Panel will indicate the first row it detects that has a compulsory value missing.
   ![Picture of CSV file missing compulsory field](images/user-guide/missingFieldCsv.png)
   ![Result for missing field import](images/user-guide/missingFieldImport.png)
 
 <div style="page-break-after: always;"></div>
 
-* Multiple Tags present in entry.
+*  If there are multiple tags in an entry, you should separate the tags with `/`. You will still be able to import the data from the csv file.
   ![Picture of CSV file with multiple tags](images/user-guide/multipleTagsCsv.png)
   ![Result for multiple tag import](images/user-guide/multipleTagImport.png)
 
